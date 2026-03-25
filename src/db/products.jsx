@@ -14,4 +14,12 @@ export const allProducts = [
   { id: 8, name: "Men Chadar Gray", price: 3200, image: product4, discount: 10, saleQuantity: 25 },
   { id: 9, name: "Men Chadar Gray", price: 3200, image: product1, discount: 10, saleQuantity: 30 },
   { id: 10, name: "Men Chadar Gray", price: 3200, image: product2, discount: 10, saleQuantity: 90 },
+  { id: 7, name: "Men Chadar Gray", price: 3200, image: product3, discount: 10, saleQuantity: 15 },
+  { id: 8, name: "Men Chadar Gray", price: 3200, image: product4, discount: 10, saleQuantity: 25 },
+  { id: 9, name: "Men Chadar Gray", price: 3200, image: product1, discount: 10, saleQuantity: 30 },
+  { id: 10, name: "Men Chadar Gray", price: 3200, image: product2, discount: 10, saleQuantity: 90 },
+  { id: 7, name: "Men Chadar Gray", price: 3200, image: product3, discount: 10, saleQuantity: 15 },
+  { id: 8, name: "Men Chadar Gray", price: 3200, image: product4, discount: 10, saleQuantity: 25 },
+  { id: 9, name: "Men Chadar Gray", price: 3200, image: product1, discount: 10, saleQuantity: 30 },
+  { id: 10, name: "Men Chadar Gray", price: 3200, image: product2, discount: 10, saleQuantity: 90 },
 ];
