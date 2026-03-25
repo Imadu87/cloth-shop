@@ -1,15 +1,18 @@
 import React from "react";
 
+import taanImage from "../assets/taan.jpg";
+import chadarImage from "../assets/chaddar.jfif";
+
 const categories = [
   {
     id: 1,
     name: "Taan Kapra",
-    image: "/src/assets/taan.jpg", 
+    image: taanImage,
   },
   {
     id: 2,
     name: "Men Chadar",
-    image: "/src/assets/chaddar.jfif", 
+    image: chadarImage,
   },
 ];
 

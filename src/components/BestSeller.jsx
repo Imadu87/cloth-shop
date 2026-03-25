@@ -1,29 +1,34 @@
 import React from "react";
 
+import product1 from "../assets/product1.jfif";
+import product2 from "../assets/product2.jfif";
+import product3 from "../assets/product3.jfif";
+import product4 from "../assets/product4.jfif";
+
 const bestSellers = [
   {
     id: 1,
     name: "Premium Taan Fabric - White",
     price: "RS 2,500",
-    image: "/src/assets/product1.jfif",
+    image: product1,
   },
   {
     id: 2,
     name: "Men Chadar - Blue",
     price: "RS 1,500",
-    image: "/src/assets/product2.jfif",
+    image: product2,
   },
   {
     id: 3,
     name: "Premium Taan Fabric - Black",
     price: "RS 2,800",
-    image: "/src/assets/product3.jfif",
+    image: product3,
   },
   {
     id: 4,
     name: "Men Chadar - Gray",
     price: "RS 1,700",
-    image: "/src/assets/product4.jfif",
+    image: product4,
   },
 ];
 
