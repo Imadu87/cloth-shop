@@ -1,6 +1,6 @@
 import { FaBars, FaSearch } from "react-icons/fa";
 
-import logo from "../assets/logo.png"
+import logo from "../../assets/logo.png"
 
 const Navbar = () => {
   return (

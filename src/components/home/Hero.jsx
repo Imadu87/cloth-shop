@@ -5,9 +5,9 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import banner1 from "../assets/1.png";
-import banner2 from "../assets/2.jfif";
-import banner3 from "../assets/3.jfif";
+import banner1 from "../../assets/1.png";
+import banner2 from "../../assets/2.jfif";
+import banner3 from "../../assets/3.jfif";
 
 const HeroSection = () => {
   const slides = [banner1, banner2, banner3];

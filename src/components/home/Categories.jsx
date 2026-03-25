@@ -1,7 +1,7 @@
 import React from "react";
 
-import taanImage from "../assets/taan.jpg";
-import chadarImage from "../assets/chaddar.jfif";
+import taanImage from "../../assets/taan.jpg";
+import chadarImage from "../../assets/chaddar.jfif";
 
 const categories = [
   {

@@ -1,12 +1,12 @@
 import React from 'react'
 import Home from './page/Home'
-import ProductDetail from './page/ProductDetail'
+import ProductsPage from './page/Products'
 
 const App = () => {
   return (
     <div>
       <Home />
-      {/* <ProductDetail /> */}
+      {/* <ProductsPage /> */}
     </div>
   )
 }
