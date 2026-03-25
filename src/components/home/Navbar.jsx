@@ -1,4 +1,5 @@
 import { FaBars, FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.png"
 
@@ -16,10 +17,18 @@ const Navbar = () => {
         </div>
         {/* Center - Menu */}
         <ul className="hidden sm:flex gap-8 text-gray-700 font-medium">
-          <li className="hover:text-gray-900 cursor-pointer">Home</li>
-          <li className="hover:text-gray-900 cursor-pointer">Products</li>
-          <li className="hover:text-gray-900 cursor-pointer">About</li>
-          <li className="hover:text-gray-900 cursor-pointer">Contact</li>
+          <li className="hover:text-gray-900 cursor-pointer">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="hover:text-gray-900 cursor-pointer">
+            <Link to="/products">Products</Link>
+          </li>
+          <li className="hover:text-gray-900 cursor-pointer">
+            <Link to="/about">About</Link>
+          </li>
+          <li className="hover:text-gray-900 cursor-pointer">
+            <Link to="/contact">Contact</Link>
+          </li>
         </ul>
 
         {/* Right Side - Search Bar */}
