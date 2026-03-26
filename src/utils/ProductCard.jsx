@@ -17,61 +17,61 @@ const ProductCard = ({ product }) => {
     setOpen(false);
   };
 
-  // discount formula
   const hasDiscount = product.discount && product.discount > 0;
   const discountedPrice = hasDiscount
     ? Math.round(product.price - (product.price * product.discount) / 100)
     : product.price;
 
   return (
-    <div className="border border-gray-200 rounded-xl bg-white hover:shadow-lg transition duration-300 relative">
-      {product.badge && (
-        <span className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">
-          {product.badge}
+    <div className="relative border border-gray-200 rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-transform duration-300 overflow-hidden group">
+      {/* Badges */}
+      <div className="absolute top-2 left-2 flex flex-col gap-2 z-10">
+        {product.badge && (
+          <span className="bg-black text-white text-xs px-2 py-1 rounded">
+            {product.badge}
+          </span>
+        )}
+        {product.isBestSeller && (
+          <span className="bg-gray-800 text-white text-xs px-2 py-1 rounded">
+            Best Seller
+          </span>
+        )}
+        {product.isNew && (
+          <span className="bg-gray-900 text-white text-xs px-2 py-1 rounded">
+            New
+          </span>
+        )}
+        {product.isSale && (
+          <span className="bg-gray-700 text-white text-xs px-2 py-1 rounded">
+            Sale
+          </span>
+        )}
+      </div>
+
+      {hasDiscount && (
+        <span className="absolute top-2 right-2 bg-black text-white text-xs px-2 py-1 rounded z-10">
+          {product.discount}% OFF
         </span>
       )}
-      {/* Image */}
+
+      {/* Image with 3D hover effect */}
       <Link to={`/product/${product.id}`}>
-        <div className="relative w-full h-56 overflow-hidden">
+        <div
+          className="relative w-full h-64 overflow-hidden rounded-xl"
+          style={{ perspective: "1200px" }} // perspective for 3D
+        >
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover hover:scale-105 transition duration-300"
+            className="w-full h-full object-cover transition-transform duration-500 transform-gpu
+                       group-hover:scale-110 group-hover:rotate-y-3 group-hover:rotate-x-2"
           />
-
-          {/* Best Seller */}
-          {product.isBestSeller && (
-            <span className="absolute top-2 left-2 bg-black text-white text-xs px-2 py-1 rounded">
-              Best Seller
-            </span>
-          )}
-
-          {/* New Arrival */}
-          {product.isNew && (
-            <span className="absolute top-2 left-2 bg-blue-600 text-white text-xs px-2 py-1 rounded">
-              New
-            </span>
-          )}
-
-          {/* Sale */}
-          {product.isSale && (
-            <span className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded">
-              Sale
-            </span>
-          )}
-
-          {/* Discount */}
-          {product.discount && (
-            <span className="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded">
-              {product.discount}% OFF
-            </span>
-          )}
         </div>
       </Link>
 
       {/* Content */}
       <div className="p-4 flex flex-col gap-2 text-center">
-        <h4 className="font-semibold text-lg">{product.name}</h4>
+        <h4 className="text-gray-900 font-semibold text-lg">{product.name}</h4>
 
         <div className="flex items-center justify-center gap-2">
           {hasDiscount && (
@@ -79,8 +79,7 @@ const ProductCard = ({ product }) => {
               RS {product.price}
             </span>
           )}
-
-          <span className="text-gray-800 font-semibold text-lg">
+          <span className="text-gray-900 font-bold text-lg">
             RS {discountedPrice}
           </span>
         </div>
@@ -89,17 +88,17 @@ const ProductCard = ({ product }) => {
         <div className="relative mt-3">
           <button
             onClick={() => setOpen(!open)}
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+            className="w-full bg-black text-white py-2 rounded-xl font-semibold hover:bg-gray-800 transition duration-300"
           >
             Buy
           </button>
 
           {/* Dropdown */}
           {open && (
-            <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border rounded-lg shadow-lg z-50">
+            <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border rounded-xl shadow-lg z-50">
               <button
                 onClick={handleWhatsApp}
-                className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
+                className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition"
               >
                 <FaWhatsapp className="text-green-500" />
                 Order on WhatsApp
@@ -107,7 +106,7 @@ const ProductCard = ({ product }) => {
 
               <button
                 onClick={handleAddToCart}
-                className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100"
+                className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition"
               >
                 <FaShoppingCart />
                 Add to Cart
@@ -116,10 +115,10 @@ const ProductCard = ({ product }) => {
           )}
         </div>
 
-        {/* View */}
+        {/* View Details */}
         <Link
           to={`/product/${product.id}`}
-          className="text-sm font-semibold hover:underline mt-2"
+          className="text-sm font-semibold text-gray-800 hover:underline mt-2"
         >
           View Details
         </Link>

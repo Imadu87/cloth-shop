@@ -5,16 +5,16 @@ import ProductCard from "../../utils/ProductCard";
 
 const Products = () => {
   return (
-    <section className="py-12 bg-white">
+    <section className="py-16 bg-gray-50">
       <div className="max-w-[1200px] mx-auto px-4">
         
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-center mb-8">
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
           Our Products
         </h2>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
           {allProducts.slice(0, 4).map((product) => (
             <ProductCard
               key={product.id}
@@ -31,7 +31,7 @@ const Products = () => {
         <div className="flex justify-center">
           <Link
             to="/products"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition"
+            className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-2xl font-semibold transition duration-300"
           >
             View All
           </Link>
