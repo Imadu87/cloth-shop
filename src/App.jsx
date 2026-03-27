@@ -9,15 +9,19 @@ import Footer from "./utils/Footer";
 import AboutPage from "./page/About";
 import ContactUs from "./page/ContactUs";
 import FloatingWhatsApp from "./utils/FloatingWhatsapp";
+import ScrollToTop from "./utils/ScrollToTop";
+import ProductDetailPage from "./page/ProductDetail";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Topbar />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>

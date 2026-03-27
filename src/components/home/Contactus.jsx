@@ -10,45 +10,49 @@ const Contact = () => {
     window.open(url, "_blank");
   };
 
+  const features = [
+    {
+      id: 1,
+      icon: <FaPhoneAlt size={36} className="text-black" />,
+      desc: "+92 302 0629393",
+    },
+    {
+      id: 2,
+      icon: <FaWhatsapp size={36} className="text-black" />,
+      desc: "+92 302 0629393",
+    },
+    {
+      id: 3,
+      icon: <FaMapMarkerAlt size={36} className="text-black" />,
+      desc: "New City, London",
+    },
+  ];
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-[1200px] mx-auto px-4 text-center">
-        
         {/* Heading */}
-        <h2 className="text-4xl font-bold mb-6 text-gray-900">
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
           Contact Us
         </h2>
         <p className="text-gray-600 mb-12">
           Kisi bhi product ke liye hum se directly WhatsApp par contact karein
         </p>
 
-        {/* Contact Info */}
-        <div className="flex flex-col md:flex-row justify-center gap-10 mb-10">
-          
-          {/* Phone */}
-          <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
-            <div className="bg-gray-100 p-4 rounded-full mb-3">
-              <FaPhoneAlt className="text-black text-2xl" />
+        {/* Features */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-8">
+          {features.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition duration-300"
+            >
+              <div className="flex justify-center mb-6">{item.icon}</div>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 text-sm">{item.desc}</p>
             </div>
-            <span className="text-gray-900 text-lg font-medium">+92 302 0629393</span>
-          </div>
-
-          {/* WhatsApp */}
-          <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
-            <div className="bg-gray-100 p-4 rounded-full mb-3">
-              <FaWhatsapp className="text-green-500 text-2xl" />
-            </div>
-            <span className="text-gray-900 text-lg font-medium">+92 302 0629393</span>
-          </div>
-
-          {/* Address */}
-          <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
-            <div className="bg-gray-100 p-4 rounded-full mb-3">
-              <FaMapMarkerAlt className="text-red-500 text-2xl" />
-            </div>
-            <span className="text-gray-900 text-lg font-medium">New Town, London</span>
-          </div>
-
+          ))}
         </div>
 
         {/* WhatsApp Button */}
@@ -58,7 +62,6 @@ const Contact = () => {
         >
           Chat on WhatsApp
         </button>
-
       </div>
     </section>
   );

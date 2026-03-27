@@ -61,7 +61,7 @@ const ProductCard = ({ product }) => {
           style={{ perspective: "1200px" }} // perspective for 3D
         >
           <img
-            src={product.image}
+            src={product.image1}
             alt={product.name}
             className="w-full h-full object-cover transition-transform duration-500 transform-gpu
                        group-hover:scale-110 group-hover:rotate-y-3 group-hover:rotate-x-2"

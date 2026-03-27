@@ -9,14 +9,14 @@ const BestSeller = () => {
     .slice(0, 4);
 
   return (
-    <section className="py-14 bg-gray-50">
+    <section className="py-16 bg-gray-50">
       <div className="max-w-[1200px] mx-auto px-4">
 
-        <h2 className="text-3xl font-bold text-center mb-10">
+        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">
           Best Sellers
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
           {topProducts.map((product) => (
             <ProductCard
               key={product.id}

@@ -35,7 +35,7 @@ const HeroSection = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="w-full h-[320px] sm:h-[380px] md:h-[450px] lg:h-[520px]">
-              <img src={slide} alt="" className="w-full h-full object-cover" />
+              <img src={slide} alt="Banners" className="w-full h-full object-cover" />
             </div>
           </SwiperSlide>
         ))}

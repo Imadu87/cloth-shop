@@ -21,7 +21,7 @@ const Products = () => {
               product={{
                 ...product,
                 isSale: product.isSale || false,
-                discount: product.discount || 0,
+                discount: product.discount || "",
               }}
             />
           ))}
