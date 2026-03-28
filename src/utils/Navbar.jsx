@@ -156,6 +156,7 @@ const Navbar = () => {
             <NavLink
               key={i}
               to={item.path}
+              onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
                 `px-3 py-2 rounded-md transition-all
         ${
