@@ -95,10 +95,10 @@ const ProductCard = ({ product }) => {
 
           {/* Dropdown */}
           {open && (
-            <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border rounded-xl shadow-lg z-50">
+            <div className="absolute bottom-full left-0 right-0 mb-2 bg-white border rounded-xl shadow-lg ">
               <button
                 onClick={handleWhatsApp}
-                className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition"
+                className="w-full flex items-center gap-2 px-4 py-2 hover:text-green-500 transition"
               >
                 <FaWhatsapp className="text-green-500" />
                 Order on WhatsApp
@@ -106,7 +106,7 @@ const ProductCard = ({ product }) => {
 
               <button
                 onClick={handleAddToCart}
-                className="w-full flex items-center gap-2 px-4 py-2 hover:bg-gray-100 transition"
+                className="w-full flex items-center gap-2 px-4 py-2 hover:text-blue-500 transition"
               >
                 <FaShoppingCart />
                 Add to Cart

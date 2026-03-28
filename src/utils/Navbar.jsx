@@ -1,139 +1,182 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import {
-  FaBars,
+  FaRegUser,
   FaSearch,
+  FaShoppingBag,
+  FaBars,
   FaTimes,
-  FaShoppingCart,
-  FaUser,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
-
-import logo from "../assets/logo1.png"
+import logo from "../assets/logo/logo3.png";
+import SearchOverlay from "./SearchOverlay";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [atTop, setAtTop] = useState(true);
+  const [searchOpen, setSearchOpen] = useState(false);
 
-  const toggleSidebar = () => setIsOpen(!isOpen);
-  const handleLinkClick = () => setIsOpen(false);
+  // detect scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setAtTop(false);
+      } else {
+        setAtTop(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const menuRow1 = [
+    { label: "Home", path: "/" },
+    { label: "Catalog", path: "/collections/all" },
+    { label: "Contact", path: "/pages/contact" },
+    {
+      label: "ITALIAN BOSKI FLAT 50% OFF",
+      path: "/collections/italian-boski-flat-50-off",
+    },
+    {
+      label: "PREMIUM PAPER COTTON FLAT 50% OFF",
+      path: "/collections/premium-paper-cotton-flat-50-off",
+    },
+    {
+      label: "RAFALE WOOL FLAT 50% OFF",
+      path: "/collections/rafale-wool-flat-50-off",
+    },
+  ];
+
+  const menuRow2 = [
+    {
+      label: "ASAL DOUBLE GHORA BOSKI 33% OFF",
+      path: "/collections/asal-double-ghora-boski-33-off",
+    },
+    {
+      label: "PREMIUM ROYAL BOSKI 50% OFF",
+      path: "/collections/premium-royal-boski-50-off",
+    },
+    {
+      label: "UNIVERSAL WOOL FLAT 43% OFF",
+      path: "/collections/universal-wool-flat-43-off",
+    },
+    {
+      label: "CROSS HILL FLAT 39% OFF",
+      path: "/collections/cross-hill-flat-39-off",
+    },
+  ];
 
   return (
-    <nav className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="flex justify-between items-center px-6 py-4">
-        {/* Logo (Bigger) */}
-        <img src={logo} alt="Logo" className="h-16 sm:h-18 md:h-20 w-auto" />
+    <header
+      className={`bg-[#0b1d3a] text-gray-300 fixed left-0 w-full z-40
+      transition-all duration-300
+      ${atTop ? "top-9" : "top-0"}`}
+    >
+      {/* Top Row */}
+      <div className="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between">
+        {/* Left - Menu */}
+        <button
+          className="lg:hidden text-xl"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
-          <li className="hover:text-black">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="hover:text-black">
-            <Link to="/products">Products</Link>
-          </li>
-          <li className="hover:text-black">
-            <Link to="/about">About</Link>
-          </li>
-          <li className="hover:text-black">
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
+        {/* Desktop Left Search */}
+        <div className="hidden lg:block">
+          <FaSearch
+            className="cursor-pointer"
+            onClick={() => setSearchOpen(true)}
+          />
+        </div>
 
-        {/* Desktop Right */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* <div className="relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="pl-3 pr-8 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-black text-sm"
-            />
-            <FaSearch className="absolute right-2 top-3 text-gray-500" />
-          </div> */}
+        {/* Logo */}
+        <Link to="/">
+          <img src={logo} alt="logo" className="h-14 md:h-16 w-20 md:w-30" />
+        </Link>
 
-          <div className="flex items-center space-x-6">
-            {/* Cart */}
-            <div className="flex items-center space-x-1 cursor-pointer hover:text-black text-gray-700">
-              <FaShoppingCart />
-              <span>Cart</span>
-            </div>
+        {/* Right Icons */}
+        <div className="flex items-center gap-4">
+          <FaSearch
+            className="cursor-pointer lg:hidden"
+            onClick={() => setSearchOpen(true)}
+          />
+          <FaShoppingBag className="cursor-pointer lg:hidden" />
 
-            {/* Sign In */}
-            <div className="flex items-center space-x-1 cursor-pointer hover:text-black text-gray-700">
-              <FaUser />
-              <span>Sign In</span>
-            </div>
+          <div className="hidden lg:flex items-center gap-5">
+            <FaRegUser className="cursor-pointer hover:text-white" />
+            <FaShoppingBag className="cursor-pointer hover:text-white" />
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        <div className="md:hidden">
-          <FaBars className="text-xl text-gray-700" onClick={toggleSidebar} />
+      {/* Desktop Menu */}
+      <div className="hidden lg:flex flex-col border-t border-gray-700">
+        <div className="max-w-[1200px] mx-auto px-4 py-3 flex flex-wrap justify-center gap-6 text-sm">
+          {menuRow1.map((item, i) => (
+            <NavLink
+              key={i}
+              to={item.path}
+              className={({ isActive }) =>
+                `hover:underline hover:text-gray-50 ${
+                  isActive ? "underline text-gray-50" : ""
+                }`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </div>
+
+        <div className="max-w-[1200px] mx-auto px-4 pb-3 flex flex-wrap justify-center gap-6 text-sm">
+          {menuRow2.map((item, i) => (
+            <NavLink
+              key={i}
+              to={item.path}
+              className={({ isActive }) =>
+                `hover:underline hover:text-gray-50 ${
+                  isActive ? "underline text-gray-50" : ""
+                }`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
         </div>
       </div>
 
-      {/* Sidebar */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 h-full bg-white w-3/4 max-w-xs shadow-xl z-50 transform transition-transform duration-300
-        ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`lg:hidden bg-[#0b1d3a] border-t border-gray-700 
+        overflow-y-auto transition-all duration-300
+        ${menuOpen ? "max-h-[calc(100vh-70px)] py-4" : "max-h-0"}`}
       >
-        {/* Close */}
-        <div className="flex justify-end p-4">
-          <FaTimes className="text-xl text-gray-700" onClick={toggleSidebar} />
+        <div className="flex flex-col gap-4 px-6 text-gray-300">
+          {[...menuRow1, ...menuRow2].map((item, i) => (
+            <NavLink
+              key={i}
+              to={item.path}
+              className={({ isActive }) =>
+                `px-3 py-2 rounded-md transition-all
+        ${
+          isActive ? "bg-white/10 text-white" : "text-gray-300 hover:bg-white/5"
+        }`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
         </div>
 
-        {/* Menu Links */}
-        <ul className="flex flex-col gap-6 px-6 py-4 text-gray-700 font-medium border-b">
-          <li className="hover:text-black">
-            <Link to="/" onClick={handleLinkClick}>
-              Home
-            </Link>
-          </li>
-          <li className="hover:text-black">
-            <Link to="/products" onClick={handleLinkClick}>
-              Products
-            </Link>
-          </li>
-          <li className="hover:text-black">
-            <Link to="/about" onClick={handleLinkClick}>
-              About
-            </Link>
-          </li>
-          <li className="hover:text-black">
-            <Link to="/contact" onClick={handleLinkClick}>
-              Contact
-            </Link>
-          </li>
-        </ul>
-
-        {/* Cart & Signin */}
-        <div className="flex flex-col gap-4 px-6 py-6">
-          <Link
-            to="/cart"
-            onClick={handleLinkClick}
-            className="flex items-center gap-3 text-gray-700 hover:text-black"
-          >
-            <FaShoppingCart />
-            Cart
-          </Link>
-
-          <Link
-            to="/login"
-            onClick={handleLinkClick}
-            className="flex items-center gap-3 text-gray-700 hover:text-black"
-          >
-            <FaUser />
-            Sign In
-          </Link>
+        <div className="border-t border-gray-700 mt-6 px-6 pt-4">
+          <div className="flex items-center gap-3 text-gray-400">
+            <FaRegUser />
+            <span>Login</span>
+          </div>
         </div>
       </div>
-
-      {/* Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/40 z-40"
-          onClick={toggleSidebar}
-        />
-      )}
-    </nav>
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+    </header>
   );
 };
 

@@ -1,10 +1,12 @@
 import React from 'react'
-import ProductsPage from '../components/products/ProductsListing'
+import FilteredProductsPage from '../components/products/ProductsFiltering'
+import ProductsFilterMobile from '../components/products/ProductsFilterMobile'
 
 const Products = () => {
   return (
     <div>
-        <ProductsPage />
+        <FilteredProductsPage />
+        <ProductsFilterMobile />
     </div>
   )
 }

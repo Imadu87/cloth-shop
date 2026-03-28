@@ -6,11 +6,11 @@ import ProductsPage from "./page/Products";
 import Topbar from "./utils/Topbar";
 import Navbar from "./utils/Navbar";
 import Footer from "./utils/Footer";
-import AboutPage from "./page/About";
 import ContactUs from "./page/ContactUs";
 import FloatingWhatsApp from "./utils/FloatingWhatsapp";
 import ScrollToTop from "./utils/ScrollToTop";
 import ProductDetailPage from "./page/ProductDetail";
+import SupportSection from "./utils/SupportSection";
 
 const App = () => {
   return (
@@ -18,13 +18,15 @@ const App = () => {
       <ScrollToTop />
       <Topbar />
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductsPage />} />
-        <Route path="/product/:id" element={<ProductDetailPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactUs />} />
-      </Routes>
+      <div className="pt-[100px] lg:pt-[180px]">
+        <SupportSection />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/collections/all" element={<ProductsPage />} />
+          <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="/pages/contact" element={<ContactUs />} />
+        </Routes>
+      </div>
       <FloatingWhatsApp />
       <Footer />
     </BrowserRouter>
