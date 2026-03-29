@@ -1,6 +1,6 @@
 import React from "react";
-import { allProducts } from "../../db/products";
-import ProductCard from "../../utils/ProductCard";
+import { allProducts } from "../db/products";
+import ProductCard from "../layout/ProductCard";
 
 const RelatedProducts = () => {
   return (

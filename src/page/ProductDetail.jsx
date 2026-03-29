@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FaStar, FaWhatsapp, FaShoppingCart } from "react-icons/fa";
-import { allProducts } from "../db/products";
+import { allProducts } from "../components/db/products";
 import Reviews from "../components/productsDetail/Reviews";
 import RelatedProducts from "../components/productsDetail/RelatedProducts";
 
@@ -31,7 +31,7 @@ const ProductDetailPage = () => {
       <div className="max-w-[1200px] mx-auto px-4">
         {/* Breadcrumb */}
         <div className="text-sm text-gray-500 mb-6">
-          <Link to="/products" className="hover:text-black">
+          <Link to="/collections/all" className="hover:text-black">
             Shop
           </Link>
           <span className="mx-2">›</span>

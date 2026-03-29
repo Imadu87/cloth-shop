@@ -7,13 +7,15 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import logo from "../assets/logo/logo3.png";
+import logo from "../../assets/logo/logo3.png";
 import SearchOverlay from "./SearchOverlay";
+import Cart from "../checkout/Cart";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   // detect scroll position
   useEffect(() => {
@@ -101,11 +103,19 @@ const Navbar = () => {
             className="cursor-pointer lg:hidden"
             onClick={() => setSearchOpen(true)}
           />
-          <FaShoppingBag className="cursor-pointer lg:hidden" />
+          <FaShoppingBag
+            className="cursor-pointer lg:hidden"
+            onClick={() => setCartOpen(true)}
+          />
 
           <div className="hidden lg:flex items-center gap-5">
-            <FaRegUser className="cursor-pointer hover:text-white" />
-            <FaShoppingBag className="cursor-pointer hover:text-white" />
+            <Link to="/auth">
+              <FaRegUser className="cursor-pointer hover:text-white" />
+            </Link>
+            <FaShoppingBag
+              className="cursor-pointer hover:text-white"
+              onClick={() => setCartOpen(true)}
+            />
           </div>
         </div>
       </div>
@@ -170,13 +180,16 @@ const Navbar = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-6 px-6 pt-4">
-          <div className="flex items-center gap-3 text-gray-400">
-            <FaRegUser />
-            <span>Login</span>
-          </div>
+          <Link to="/auth">
+            <div className="flex items-center gap-3 text-gray-400">
+              <FaRegUser />
+              <span>Login</span>
+            </div>
+          </Link>
         </div>
       </div>
       <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <Cart isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </header>
   );
 };

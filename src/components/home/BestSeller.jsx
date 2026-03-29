@@ -1,6 +1,6 @@
 import React from "react";
-import { allProducts as bestSellers } from "../../db/products";
-import ProductCard from "../../utils/ProductCard";
+import { allProducts as bestSellers } from "../db/products";
+import ProductCard from "../layout/ProductCard";
 
 const BestSeller = () => {
   // Sort products by saleQuantity descending and pick top 4

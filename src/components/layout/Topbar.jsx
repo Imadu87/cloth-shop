@@ -35,7 +35,7 @@ const Topbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full z-50 
+      className={`fixed top-0 left-0 w-full 
       transition-all duration-300
       ${show ? "translate-y-0" : "-translate-y-full"}`}
     >

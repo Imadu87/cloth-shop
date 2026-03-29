@@ -7,8 +7,8 @@ const ContactInfo = () => {
       <div className="max-w-[1200px] mx-auto px-4">
         
         {/* Heading */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-center mb-12 text-gray-900">
+        <div className="mb-10">
+          <h1 className="text-4xl font-bold mb-10 text-gray-900">
             Contact Us
           </h1>
           <p className="text-gray-600 mb-12">

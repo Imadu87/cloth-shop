@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { allProducts } from "../../db/products";
-import ProductCard from "../../utils/ProductCard";
+import { allProducts } from "../db/products";
+import ProductCard from "../layout/ProductCard";
 
 const Products = () => {
   return (

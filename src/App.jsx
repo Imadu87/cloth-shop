@@ -1,34 +1,34 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import MainLayout from "./layout/MainLayout";
+import AuthLayout from "./layout/AuthLayout";
+
 import Home from "./page/Home";
 import ProductsPage from "./page/Products";
-import Topbar from "./utils/Topbar";
-import Navbar from "./utils/Navbar";
-import Footer from "./utils/Footer";
 import ContactUs from "./page/ContactUs";
-import FloatingWhatsApp from "./utils/FloatingWhatsapp";
-import ScrollToTop from "./utils/ScrollToTop";
 import ProductDetailPage from "./page/ProductDetail";
-import SupportSection from "./utils/SupportSection";
+import OrderSummary from "./components/checkout/OrderSummary";
+import Auth from "./page/Auth";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Topbar />
-      <Navbar />
-      <div className="pt-[100px] lg:pt-[180px]">
-        <SupportSection />
-        <Routes>
+      <Routes>
+        {/* Main Website Layout */}
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/collections/all" element={<ProductsPage />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="/pages/contact" element={<ContactUs />} />
-        </Routes>
-      </div>
-      <FloatingWhatsApp />
-      <Footer />
+          <Route path="/order" element={<OrderSummary />} />
+        </Route>
+
+        {/* Authentication Layout */}
+        <Route element={<AuthLayout />}>
+          <Route path="/auth" element={<Auth />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
