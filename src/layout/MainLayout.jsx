@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Topbar from "../components/layout/Topbar";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import FloatingWhatsApp from "../components/layout/FloatingWhatsApp";
+import FloatingWhatsApp from "../components/layout/FloatingWhatsapp";
 import SupportSection from "../components/layout/SupportSection";
 import ScrollToTop from "../components/layout/ScrollToTop";
 
