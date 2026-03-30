@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import product1 from "../../assets/products/product1.jfif";
 
 const OrderSummary = () => {
   const { state } = useLocation();
@@ -10,7 +11,7 @@ const OrderSummary = () => {
       name: "Premium Cotton Shirt",
       price: 3200,
       qty: 1,
-      image: "https://via.placeholder.com/150",
+      image: product1,
     },
     customer: {
       name: "Muhammad Ali",

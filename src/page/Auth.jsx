@@ -27,7 +27,7 @@ const Auth = () => {
         </p>
 
         {/* Shop Button */}
-        <button className="w-full bg-black text-white py-3 rounded-lg mt-6 hover:bg-gray-900 transition">
+        <button className="w-full bg-[#0b1d3a] text-white py-3 rounded-lg mt-6 hover:bg-black transition">
           Continue with Shop
         </button>
 
@@ -46,7 +46,7 @@ const Auth = () => {
         />
 
         {/* Continue Button */}
-        <button className="w-full bg-black text-white py-3 rounded-lg mt-4 hover:bg-gray-900 transition">
+        <button className="w-full bg-[#0b1d3a] text-white py-3 rounded-lg mt-4 hover:bg-black transition">
           Continue
         </button>
       </motion.div>

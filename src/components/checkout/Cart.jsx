@@ -75,7 +75,7 @@ const Cart = ({ isOpen, onClose }) => {
         {/* Footer */}
         <div className="p-4 border-t">
           <button
-            className="w-full bg-black text-white py-3"
+            className="w-full bg-[#0b1d3a] text-white py-3 hover:bg-black transition rounded-lg"
             onClick={() => setCodOpen(true)}
           >
             Buy Now

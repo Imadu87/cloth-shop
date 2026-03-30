@@ -115,7 +115,7 @@ const CODModal = ({ isOpen, onClose }) => {
         {/* Button */}
         <Link to="/order">
           <button
-            className="w-full bg-black text-white py-3 mt-2"
+            className="w-full bg-[#0b1d3a] text-white py-3 mt-2 hover:bg-black transition rounded-lg"
             onClick={onClose}
           >
             Complete Order • Rs 3200

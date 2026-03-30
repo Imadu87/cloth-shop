@@ -30,8 +30,8 @@ const Products = () => {
         {/* View All Button */}
         <div className="flex justify-center">
           <Link
-            to="/collections/all"
-            className="bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-2xl font-semibold transition duration-300"
+            to="/collections/all-products"
+            className="bg-[#0b1d3a] hover:bg-black text-white px-8 py-3 rounded-2xl font-semibold transition duration-300"
           >
             View All
           </Link>

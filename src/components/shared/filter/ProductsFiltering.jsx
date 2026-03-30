@@ -1,10 +1,22 @@
 import React from "react";
-import Dropdown from "./Popup";
+import Dropdown from "../../products/Popup";
+import { useLocation } from "react-router-dom";
 
 const ProductsFilter = () => {
+  const location = useLocation();
+
+  const heading =
+    location.pathname === "/"
+      ? "HOME"
+      : location.pathname
+          .split("/")
+          .filter(Boolean)
+          .pop()
+          .replace(/-/g, " ")
+          .toUpperCase();
   return (
     <div className="hidden md:block w-full max-w-[1200px] mx-auto px-4 py-8">
-      <h2 className="text-2xl font-semibold mb-4">Products</h2>
+      <h2 className="text-4xl font-bold mb-12 text-gray-900">{heading}</h2>
 
       <div className="flex flex-wrap justify-between items-center gap-4 pb-4">
         {/* Left Filters */}
@@ -75,16 +87,6 @@ const ProductsFilter = () => {
 
           <span className="text-sm text-gray-500">100 Products</span>
         </div>
-      </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center items-center gap-2 mt-8 text-gray-500">
-        <button className="px-3 py-1">{`<`}</button>
-        <button className="px-3 py-1">1</button>
-        <button className="px-3 py-1">2</button>
-        <button className="px-3 py-1">3</button>
-        <button className="px-3 py-1">4</button>
-        <button className="px-3 py-1">{`>`}</button>
       </div>
     </div>
   );

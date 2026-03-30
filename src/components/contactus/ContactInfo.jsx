@@ -22,7 +22,7 @@ const ContactInfo = () => {
           <div className="flex flex-col gap-6">
             
             <div className="flex items-center gap-4">
-              <FaPhone className="text-xl text-blue-600" />
+              <FaPhone className="text-xl text-[#0b1d3a]" />
               <div>
                 <h4 className="font-semibold">Phone</h4>
                 <p className="text-gray-600">+92 302 0629393</p>
@@ -86,7 +86,7 @@ const ContactInfo = () => {
 
             <button
               type="submit"
-              className="bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
+              className="bg-[#0b1d3a] text-white py-3 rounded-lg hover:bg-black transition"
             >
               Send Message
             </button>

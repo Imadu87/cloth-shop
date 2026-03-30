@@ -31,7 +31,7 @@ const ProductDetailPage = () => {
       <div className="max-w-[1200px] mx-auto px-4">
         {/* Breadcrumb */}
         <div className="text-sm text-gray-500 mb-6">
-          <Link to="/collections/all" className="hover:text-black">
+          <Link to="/collections/all-products" className="hover:text-black">
             Shop
           </Link>
           <span className="mx-2">›</span>
@@ -127,7 +127,7 @@ const ProductDetailPage = () => {
               <div className="relative">
                 <button
                   onClick={() => setOpen(!open)}
-                  className="bg-black text-white px-6 py-3 rounded-xl"
+                  className="bg-[#0b1d3a] hover:bg-black text-white px-6 py-3 rounded-xl"
                 >
                   Buy Now
                 </button>

@@ -88,7 +88,7 @@ const ProductCard = ({ product }) => {
         <div className="relative mt-3">
           <button
             onClick={() => setOpen(!open)}
-            className="w-full bg-black text-white py-2 rounded-xl font-semibold hover:bg-gray-800 transition duration-300"
+            className="w-full bg-[#0b1d3a] text-white py-2 rounded-xl font-semibold hover:bg-black transition duration-300"
           >
             Buy
           </button>
@@ -118,7 +118,7 @@ const ProductCard = ({ product }) => {
         {/* View Details */}
         <Link
           to={`/product/${product.id}`}
-          className="text-sm font-semibold text-gray-800 hover:underline mt-2"
+          className="text-sm font-semibold  text-gray-800 hover:underline mt-2"
         >
           View Details
         </Link>

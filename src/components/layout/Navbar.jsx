@@ -33,7 +33,7 @@ const Navbar = () => {
 
   const menuRow1 = [
     { label: "Home", path: "/" },
-    { label: "Catalog", path: "/collections/all" },
+    { label: "Catalog", path: "/collections/all-products" },
     { label: "Contact", path: "/pages/contact" },
     {
       label: "ITALIAN BOSKI FLAT 50% OFF",
