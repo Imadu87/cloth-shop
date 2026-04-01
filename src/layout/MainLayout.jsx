@@ -1,12 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import Topbar from "../components/layout/Topbar";
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
-import FloatingWhatsApp from "../components/layout/FloatingWhatsapp";
-import SupportSection from "../components/layout/SupportSection";
-import ScrollToTop from "../components/layout/ScrollToTop";
+import Topbar from "../components/common/Topbar";
+import Navbar from "../components/common/Navbar";
+import Footer from "../components/common/Footer";
+import FloatingWhatsApp from "../components/common/FloatingWhatsapp";
+import SupportSection from "../components/common/SupportSection";
+import ScrollToTop from "../components/common/ScrollToTop";
 
 const MainLayout = () => {
   return (

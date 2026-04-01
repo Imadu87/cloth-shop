@@ -4,12 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import AuthLayout from "./layout/AuthLayout";
 
-import Home from "./page/Home";
-import ProductsPage from "./page/Products";
-import ContactUs from "./page/ContactUs";
-import ProductDetailPage from "./page/ProductDetail";
+import Home from "./page/home/Home";
+import ProductsPage from "./page/products/Products";
+import ContactUs from "./page/contactus/ContactUs";
+import ProductDetailPage from "./page/productDetail/ProductDetail";
 import OrderSummary from "./components/checkout/OrderSummary";
-import Auth from "./page/Auth";
+import Auth from "./page/auth/Auth";
 
 const App = () => {
   return (

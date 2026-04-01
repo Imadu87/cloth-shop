@@ -64,7 +64,7 @@ const ProductsFilterMobile = () => {
       id: "sort",
       title: "Sort",
       content: (
-        <ul className="flex flex-col gap-2 text-sm">
+        <ul className="flex flex-col gap-2 text-sm ">
           <li className="px-3 py-2 hover:bg-gray-100">
             <input type="radio" name="sort" className="mr-2" /> Featured
           </li>

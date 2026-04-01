@@ -73,7 +73,7 @@ export const allProducts = [
     image3: product4image3,
     image4: product4image4,
     discount: 10,
-    saleQuantity: 20,
+    saleQuantity: 120,
     inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",

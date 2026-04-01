@@ -103,19 +103,31 @@ const Navbar = () => {
             className="cursor-pointer lg:hidden"
             onClick={() => setSearchOpen(true)}
           />
-          <FaShoppingBag
-            className="cursor-pointer lg:hidden"
-            onClick={() => setCartOpen(true)}
-          />
+          <div className="relative lg:hidden">
+            <FaShoppingBag
+              className="cursor-pointer"
+              onClick={() => setCartOpen(true)}
+            />
+
+            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-3 h-3 flex items-center justify-center rounded-full">
+              0
+            </span>
+          </div>
 
           <div className="hidden lg:flex items-center gap-5">
             <Link to="/auth">
               <FaRegUser className="cursor-pointer hover:text-white" />
             </Link>
-            <FaShoppingBag
-              className="cursor-pointer hover:text-white"
-              onClick={() => setCartOpen(true)}
-            />
+            <div className="relative">
+              <FaShoppingBag
+                className="cursor-pointer"
+                onClick={() => setCartOpen(true)}
+              />
+
+              <span className="absolute -top-4 -right-2 bg-red-500  text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full">
+                0
+              </span>
+            </div>
           </div>
         </div>
       </div>

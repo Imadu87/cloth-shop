@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FaStar, FaWhatsapp, FaShoppingCart } from "react-icons/fa";
-import { allProducts } from "../components/db/products";
-import Reviews from "../components/productsDetail/Reviews";
-import RelatedProducts from "../components/productsDetail/RelatedProducts";
+import { allProducts } from "../../components/db/products";
+import Reviews from "./components/Reviews";
+import Products from "../../components/products/Products";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
@@ -151,7 +151,7 @@ const ProductDetailPage = () => {
         <Reviews />
 
         {/* Related Products */}
-        <RelatedProducts />
+        <Products heading={"SHOP MORE HIT ARTICLES"} isBestSeller={true} />
       </div>
     </section>
   );

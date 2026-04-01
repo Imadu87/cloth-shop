@@ -1,22 +1,22 @@
 import React from "react";
-import { allProducts } from "../components/db/products";
-
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import FilteredProductsPage from "../components/shared/filter/ProductsFiltering";
-import ProductsFilterMobile from "../components/shared/filter/ProductsFilteringMobile";
-import Pagination from "../components/products/Pagination";
-import ProductCard from "../components/layout/ProductCard";
+import FilteredProductsPage from "./components/filter/ProductsFiltering";
+import ProductsFilterMobile from "./components/filter/ProductsFilteringMobile";
+import Pagination from "./components/Pagination";
+import ProductCard from "../../components/products/ProductCard";
 import { FaBoxOpen } from "react-icons/fa";
-import RelatedProducts from "../components/productsDetail/RelatedProducts";
+import Products from "../../components/products/Products";
 
-const Products = () => {
+const ProductsPage = () => {
   const { category } = useParams();
+  const allProducts = useSelector((state) => state.products.products);
 
   const filteredProducts =
     category === "all-products"
-      ? allProducts
-      : allProducts.filter((product) => product.category === category);
+      ? allProducts || []
+      : (allProducts || []).filter((product) => product.category === category);
 
   return (
     <div className="mb-4 md:mb-6">
@@ -51,10 +51,9 @@ const Products = () => {
       </div>
 
       <Pagination />
-
-      <RelatedProducts />
+      <Products heading={"SHOP MORE HIT ARTICLES"} isBestSeller={true} />
     </div>
   );
 };
 
-export default Products;
+export default ProductsPage;

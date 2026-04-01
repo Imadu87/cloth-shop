@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from "../../products/Popup";
+import Dropdown from "../Popup";
 import { useLocation } from "react-router-dom";
 
 const ProductsFilter = () => {
