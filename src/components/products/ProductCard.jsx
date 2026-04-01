@@ -1,20 +1,22 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import { Link } from "react-router-dom";
 import { FaWhatsapp, FaShoppingCart } from "react-icons/fa";
 
+import { addToCart } from "../../store/slices/cartSlice";
+
 const ProductCard = ({ product }) => {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+
 
   const handleWhatsApp = () => {
     const phoneNumber = "+923020629393";
     const message = `Assalamualaikum, mujhe yeh product chahiye: ${product.name}`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
-  };
-
-  const handleAddToCart = () => {
-    console.log("Added to cart:", product);
-    setOpen(false);
   };
 
   const hasDiscount = product.discount && product.discount > 0;
@@ -105,7 +107,10 @@ const ProductCard = ({ product }) => {
               </button>
 
               <button
-                onClick={handleAddToCart}
+                onClick={() => {
+                  dispatch(addToCart({ product, quantity: 1 }));
+                  setOpen(false);
+                }}
                 className="w-full flex items-center gap-2 px-4 py-2 hover:text-blue-500 transition"
               >
                 <FaShoppingCart />

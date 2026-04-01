@@ -1,19 +1,7 @@
 import product1 from "../../assets/products/product1.jfif";
-import product1image2 from "../../assets/products/product1image2.webp";
-import product1image3 from "../../assets/products/product1image3.jpg";
-import product1image4 from "../../assets/products/product1image4.jfif";
 import product2 from "../../assets/products/product2.webp";
-import product2image2 from "../../assets/products/product2image2.webp";
-import product2image3 from "../../assets/products/product2image3.webp";
-import product2image4 from "../../assets/products/product2image4.jfif";
 import product3 from "../../assets/products/product3.jpg";
-import product3image2 from "../../assets/products/product3image2.jfif";
-import product3image3 from "../../assets/products/product3image3.webp";
-import product3image4 from "../../assets/products/product3image4.jfif";
 import product4 from "../../assets/products/product4.jpg";
-import product4image2 from "../../assets/products/product4image2.jfif";
-import product4image3 from "../../assets/products/product4image3.jfif";
-import product4image4 from "../../assets/products/product4image4.jfif";
 
 export const allProducts = [
   {
@@ -22,15 +10,16 @@ export const allProducts = [
     category: "italian-boski-flat-50-off",
     price: 1000,
     image1: product1,
-    image2: product1image2,
-    image3: product1image3,
-    image4: product1image4,
     discount: 20,
     saleQuantity: 50,
     isSale: true,
     inStock: 12,
     description:
       "A classic white cotton shirt that's perfect for any occasion. Made from 100% breathable cotton, it offers comfort and style in one package.",
+    season: "Summer",
+    material: "Cotton",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 2,
@@ -38,15 +27,16 @@ export const allProducts = [
     category: "italian-boski-flat-50-off",
     price: 1500,
     image1: product2,
-    image2: product2image2,
-    image3: product2image3,
-    image4: product2image4,
     discount: 15,
     saleQuantity: 30,
     isSale: true,
     inStock: 0,
     description:
       "Stylish blue jeans that offer a perfect fit and comfort for all-day wear.",
+    season: "All Seasons",
+    material: "Denim",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 3,
@@ -54,14 +44,15 @@ export const allProducts = [
     category: "premium-paper-cotton-flat-50-off",
     price: 2200,
     image1: product3,
-    image2: product3image2,
-    image3: product3image3,
-    image4: product3image4,
     discount: 25,
     saleQuantity: 46,
     inStock: 12,
     description:
       "A vibrant red t-shirt that's both comfortable and fashionable.",
+    season: "Summer",
+    material: "Cotton",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 4,
@@ -69,14 +60,15 @@ export const allProducts = [
     category: "premium-paper-cotton-flat-50-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 120,
     inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 5,
@@ -84,13 +76,14 @@ export const allProducts = [
     category: "rafale-wool-falt-50-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 6,
@@ -98,13 +91,14 @@ export const allProducts = [
     category: "rafale-wool-falt-50-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 7,
@@ -112,13 +106,14 @@ export const allProducts = [
     category: "asal-double-ghora-boski-33-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 8,
@@ -126,13 +121,14 @@ export const allProducts = [
     category: "asal-double-ghora-boski-33-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 9,
@@ -140,13 +136,14 @@ export const allProducts = [
     category: "premium-royal-boski-50-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 10,
@@ -154,13 +151,14 @@ export const allProducts = [
     category: "premium-royal-boski-50-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 11,
@@ -168,13 +166,14 @@ export const allProducts = [
     category: "universal-wool-flat-43-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 12,
@@ -182,13 +181,14 @@ export const allProducts = [
     category: "universal-wool-flat-43-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 13,
@@ -196,13 +196,14 @@ export const allProducts = [
     category: "universal-wool-flat-43-off",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
   {
     id: 14,
@@ -210,12 +211,13 @@ export const allProducts = [
     category: "cross-hill-flat-39",
     price: 3200,
     image1: product4,
-    image2: product4image2,
-    image3: product4image3,
-    image4: product4image4,
     discount: 10,
     saleQuantity: 20,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
+    season: "Winter",
+    material: "Wool",
+    length: "4 Yards",
+    width: "45 Inches",
   },
 ];

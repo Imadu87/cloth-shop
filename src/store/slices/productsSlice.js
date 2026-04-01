@@ -6,7 +6,14 @@ const productsSlice = createSlice({
   initialState: {
     products: allProducts,
   },
-  reducers: {}
+  reducers: {},
 });
+
+// Selector: Sale Quantity ki base par top 4 products
+export const selectBestSellers = (state) => {
+  return [...state.products.products]
+    .sort((a, b) => b.saleQuantity - a.saleQuantity)
+    .slice(0, 4);
+};
 
 export default productsSlice.reducer;

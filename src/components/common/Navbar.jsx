@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import {
   FaRegUser,
@@ -16,6 +17,7 @@ const Navbar = () => {
   const [atTop, setAtTop] = useState(true);
   const [searchOpen, setSearchOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
   // detect scroll position
   useEffect(() => {
@@ -110,7 +112,7 @@ const Navbar = () => {
             />
 
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-3 h-3 flex items-center justify-center rounded-full">
-              0
+              {totalQuantity}
             </span>
           </div>
 
@@ -125,7 +127,7 @@ const Navbar = () => {
               />
 
               <span className="absolute -top-4 -right-2 bg-red-500  text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full">
-                0
+                {totalQuantity}
               </span>
             </div>
           </div>
