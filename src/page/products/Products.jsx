@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
@@ -11,17 +11,54 @@ import Products from "../../components/products/Products";
 
 const ProductsPage = () => {
   const { category } = useParams();
+
   const allProducts = useSelector((state) => state.products.products);
 
-  const filteredProducts =
-    category === "all-products"
+  const { availability, minPrice, maxPrice } = useSelector(
+    (state) => state.filters,
+  );
+
+  // category filter first
+  const categoryProducts = useMemo(() => {
+    return category === "all-products"
       ? allProducts || []
       : (allProducts || []).filter((product) => product.category === category);
+  }, [category, allProducts]);
+
+  // apply redux filters
+  const filteredProducts = useMemo(() => {
+    let temp = [...categoryProducts];
+
+    if (availability === "instock") {
+      temp = temp.filter((p) => p.inStock > 0);
+    }
+
+    if (availability === "outofstock") {
+      temp = temp.filter((p) => p.inStock === 0);
+    }
+
+    if (minPrice !== "" && minPrice !== null) {
+      temp = temp.filter((p) => p.price >= minPrice);
+    }
+
+    if (maxPrice !== "" && maxPrice !== null) {
+      temp = temp.filter((p) => p.price <= maxPrice);
+    }
+
+    return temp;
+  }, [categoryProducts, availability, minPrice, maxPrice]);
 
   return (
     <div className="mb-4 md:mb-6">
-      <FilteredProductsPage />
-      <ProductsFilterMobile />
+      <FilteredProductsPage
+        products={categoryProducts}
+        filteredProducts={filteredProducts}
+      />
+      <ProductsFilterMobile
+        products={categoryProducts}
+        filteredProducts={filteredProducts}
+      />
+
       <div className="max-w-[1200px] mx-auto px-4">
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">

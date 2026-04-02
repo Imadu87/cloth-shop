@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { FaWhatsapp, FaShoppingCart } from "react-icons/fa";
@@ -9,8 +9,6 @@ import { addToCart } from "../../store/slices/cartSlice";
 const ProductCard = ({ product }) => {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
-
 
   const handleWhatsApp = () => {
     const phoneNumber = "+923020629393";

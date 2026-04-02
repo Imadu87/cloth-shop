@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../../store/slices/counterSlice";
+import { addToCart } from "../../store/slices/cartSlice";
 
-import { FaStar, FaWhatsapp, FaShoppingCart } from "react-icons/fa";
+import { FaStar, FaWhatsapp } from "react-icons/fa";
 import Reviews from "./components/Reviews";
 import Products from "../../components/products/Products";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
+
   const products = useSelector((state) => state.products.products);
   const count = useSelector((state) => state.counter.count);
   const dispatch = useDispatch();
+
   const product = products.find((p) => p.id === Number(id));
 
   const [open, setOpen] = useState(false);
@@ -121,7 +125,12 @@ const ProductDetailPage = () => {
 
             {/* Add To Cart / Buy Buttons */}
             <div className="flex flex-col gap-3">
-              <button className="bg-[#0b1d3a] hover:bg-black text-white px-6 py-3 rounded-xl text-lg font-medium">
+              <button
+                onClick={() => {
+                  dispatch(addToCart({ product, quantity: count }));
+                }}
+                className="bg-[#0b1d3a] hover:bg-black text-white px-6 py-3 rounded-xl text-lg font-medium"
+              >
                 Add To Cart
               </button>
               <button

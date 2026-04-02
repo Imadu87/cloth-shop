@@ -1,12 +1,31 @@
 import React, { useState } from "react";
-import SlideOver from "./SlideOver";
 import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  setAvailability,
+  setMinPrice,
+  setMaxPrice,
+  resetPrice,
+} from "../../../../store/slices/filterSlice";
+
 import { IoFilterCircleOutline } from "react-icons/io5";
 
-const ProductsFilterMobile = () => {
+import SlideOver from "./SlideOver";
+
+const ProductsFilterMobile = ({ products = [], filteredProducts = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const dispatch = useDispatch();
   const location = useLocation();
+
+  const { availability, minPrice, maxPrice } = useSelector(
+    (state) => state.filters,
+  );
+
+  // counts
+  const inStockCount = products.filter((p) => p.inStock > 0).length;
+  const outStockCount = products.filter((p) => p.inStock === 0).length;
 
   const heading =
     location.pathname === "/"
@@ -25,15 +44,25 @@ const ProductsFilterMobile = () => {
       content: (
         <div className="flex flex-col gap-2">
           <label className="flex items-center gap-2">
-            <input type="checkbox" /> In Stock (100)
+            <input
+              type="checkbox"
+              checked={availability === "instock"}
+              onChange={() => dispatch(setAvailability("instock"))}
+            />{" "}
+            In Stock ({inStockCount})
           </label>
           <label className="flex items-center gap-2">
-            <input type="checkbox" /> Out of stock (0)
+            <input
+              type="checkbox"
+              checked={availability === "outofstock"}
+              onChange={() => dispatch(setAvailability("outofstock"))}
+            />{" "}
+            Out of stock ({outStockCount})
           </label>
         </div>
       ),
-      onRemoveAll: () => console.log("Remove all Availability"),
-      onApply: () => console.log("Apply Availability"),
+      onRemoveAll: () => dispatch(setAvailability(null)),
+      onApply: () => (setIsOpen(false)),
     },
     {
       id: "price",
@@ -47,18 +76,34 @@ const ProductsFilterMobile = () => {
               type="number"
               placeholder="From"
               className="border rounded-xl px-2 py-1 w-full"
+              value={minPrice || ""}
+              onChange={(e) =>
+                dispatch(
+                  setMinPrice(
+                    e.target.value === "" ? "" : Number(e.target.value),
+                  ),
+                )
+              }
             />
             <span>Rs</span>
             <input
               type="number"
               placeholder="To"
               className="border rounded-xl px-2 py-1 w-full"
+              value={maxPrice || ""}
+              onChange={(e) =>
+                dispatch(
+                  setMaxPrice(
+                    e.target.value === "" ? "" : Number(e.target.value),
+                  ),
+                )
+              }
             />
           </div>
         </div>
       ),
-      onRemoveAll: () => console.log("Remove all Price"),
-      onApply: () => console.log("Apply Price"),
+      onRemoveAll: () => dispatch(resetPrice(null)),
+      onApply: () => (setIsOpen(false)),
     },
     {
       id: "sort",
@@ -78,15 +123,17 @@ const ProductsFilterMobile = () => {
             <input type="radio" name="sort" className="mr-2" /> Z-A
           </li>
           <li className="px-3 py-2 hover:bg-gray-100">
-            <input type="radio" name="sort" className="mr-2" /> Price: low to high
+            <input type="radio" name="sort" className="mr-2" /> Price: low to
+            high
           </li>
           <li className="px-3 py-2 hover:bg-gray-100">
-            <input type="radio" name="sort" className="mr-2" /> Price: high to low
+            <input type="radio" name="sort" className="mr-2" /> Price: high to
+            low
           </li>
         </ul>
       ),
       onRemoveAll: () => console.log("Remove all Sort"),
-      onApply: () => console.log("Apply Sort"),
+      onApply: () => (setIsOpen(false)),
     },
   ];
 
@@ -101,7 +148,9 @@ const ProductsFilterMobile = () => {
               Filter and Sort
             </span>
           </div>
-          <div className="flex gap-2 items-center">100 Products</div>
+          <div className="flex gap-2 items-center">
+            {filteredProducts.length} Products
+          </div>
         </div>
       </div>
 
@@ -109,6 +158,7 @@ const ProductsFilterMobile = () => {
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
         steps={steps}
+        filteredProducts={filteredProducts}
       />
     </div>
   );

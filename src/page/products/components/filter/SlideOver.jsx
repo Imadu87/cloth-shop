@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { resetFilters } from "../../../../store/slices/filterSlice";
 import { FaArrowLeft } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 
-const SlideOver = ({ isOpen, onClose, steps }) => {
+const SlideOver = ({ isOpen, onClose, steps, filteredProducts }) => {
   const [currentStep, setCurrentStep] = useState(null);
+  const dispatch = useDispatch();
 
   if (!isOpen) return null;
 
@@ -52,7 +55,9 @@ const SlideOver = ({ isOpen, onClose, steps }) => {
         <div className="relative flex flex-col items-center justify-center p-4 border-b">
           <div className="text-center">
             <span className="font-semibold text-lg block">Filter & Sort</span>
-            <span className="text-sm text-gray-500">100 Products</span>
+            <span className="text-sm text-gray-500">
+              {filteredProducts.length} Products
+            </span>
           </div>
           <button
             onClick={onClose}
@@ -76,7 +81,9 @@ const SlideOver = ({ isOpen, onClose, steps }) => {
                   <span className="text-gray-700">{step.title}</span>
                   <div className="flex items-center gap-2">
                     {step.value && (
-                      <span className="text-sm text-gray-500">{step.value}</span>
+                      <span className="text-sm text-gray-500">
+                        {step.value}
+                      </span>
                     )}
                     <span className="text-gray-400">→</span>
                   </div>
@@ -86,8 +93,16 @@ const SlideOver = ({ isOpen, onClose, steps }) => {
 
             {/* Footer buttons */}
             <div className="flex gap-2 p-4 border-t">
-              <button className="flex-1 border px-3 py-2 rounded">Remove All</button>
-              <button className="flex-1 bg-black text-white px-3 py-2 rounded">
+              <button
+                className="flex-1 border px-3 py-2 rounded"
+                onClick={() => dispatch(resetFilters(null))}
+              >
+                Remove All
+              </button>
+              <button
+                className="flex-1 bg-black text-white px-3 py-2 rounded"
+                onClick={onClose}
+              >
                 Apply
               </button>
             </div>

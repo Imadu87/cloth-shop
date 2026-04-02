@@ -78,6 +78,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -93,6 +94,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -108,6 +110,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -123,6 +126,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -138,6 +142,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -153,6 +158,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -168,6 +174,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -183,6 +190,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -198,6 +206,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 0,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
@@ -213,6 +222,7 @@ export const allProducts = [
     image1: product4,
     discount: 10,
     saleQuantity: 20,
+    inStock: 5,
     description:
       "A sleek black jacket that's perfect for adding a touch of sophistication to any outfit.",
     season: "Winter",
