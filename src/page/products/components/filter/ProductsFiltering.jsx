@@ -176,7 +176,7 @@ const ProductsFilter = ({ products = [], filteredProducts = [] }) => {
               Rs {minPrice || 0} - Rs {maxPrice || highestPrice}
               <button>
                 <MdDeleteOutline
-                  onClick={() => dispatch(setMinPrice(null))}
+                  onClick={() => dispatch(resetPrice(null))}
                 />
               </button>
             </span>

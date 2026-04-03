@@ -7,11 +7,13 @@ import {
   setMinPrice,
   setMaxPrice,
   resetPrice,
+  resetFilters,
 } from "../../../../store/slices/filterSlice";
 
 import { IoFilterCircleOutline } from "react-icons/io5";
 
 import SlideOver from "./SlideOver";
+import { MdDeleteOutline } from "react-icons/md";
 
 const ProductsFilterMobile = ({ products = [], filteredProducts = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,6 +38,12 @@ const ProductsFilterMobile = ({ products = [], filteredProducts = [] }) => {
           .pop()
           .replace(/-/g, " ")
           .toUpperCase();
+
+  const hasFilters = availability || minPrice || maxPrice;
+
+  const badgeClass =
+    "bg-gray-100 px-3 py-1 rounded-full text-sm flex items-center";
+  const highestPrice = Math.max(...products.map((p) => p.price), 0);
 
   const steps = [
     {
@@ -62,7 +70,7 @@ const ProductsFilterMobile = ({ products = [], filteredProducts = [] }) => {
         </div>
       ),
       onRemoveAll: () => dispatch(setAvailability(null)),
-      onApply: () => (setIsOpen(false)),
+      onApply: () => setIsOpen(false),
     },
     {
       id: "price",
@@ -103,7 +111,7 @@ const ProductsFilterMobile = ({ products = [], filteredProducts = [] }) => {
         </div>
       ),
       onRemoveAll: () => dispatch(resetPrice(null)),
-      onApply: () => (setIsOpen(false)),
+      onApply: () => setIsOpen(false),
     },
     {
       id: "sort",
@@ -133,7 +141,7 @@ const ProductsFilterMobile = ({ products = [], filteredProducts = [] }) => {
         </ul>
       ),
       onRemoveAll: () => console.log("Remove all Sort"),
-      onApply: () => (setIsOpen(false)),
+      onApply: () => setIsOpen(false),
     },
   ];
 
@@ -152,6 +160,38 @@ const ProductsFilterMobile = ({ products = [], filteredProducts = [] }) => {
             {filteredProducts.length} Products
           </div>
         </div>
+        {hasFilters && (
+          <div className="border-t pt-3 mt-3 flex flex-wrap items-center gap-2">
+            {availability && (
+              <div className="flex items-center gap-4">
+                {" "}
+                <span className={badgeClass}>
+                  Availability:{" "}
+                  {availability === "instock" ? "In Stock" : "Out of Stock"}
+                  <button>
+                    <MdDeleteOutline
+                      onClick={() => dispatch(setAvailability(null))}
+                    />
+                  </button>
+                </span>
+              </div>
+            )}
+            {(minPrice || maxPrice) && (
+              <span className={badgeClass}>
+                Rs {minPrice || 0} - Rs {maxPrice || highestPrice}
+                <button>
+                  <MdDeleteOutline onClick={() => dispatch(resetPrice(null))} />
+                </button>
+              </span>
+            )}
+            <button
+              className="text-red-500 font-medium ml-2"
+              onClick={() => dispatch(resetFilters())}
+            >
+              Remove all
+            </button>
+          </div>
+        )}
       </div>
 
       <SlideOver

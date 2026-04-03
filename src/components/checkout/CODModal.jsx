@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { clearCart } from "../../store/slices/cartSlice";
 import {
   FaTimes,
   FaUser,
@@ -12,6 +13,7 @@ import { Link } from "react-router-dom";
 const CODModal = ({ isOpen, onClose }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const dispatch = useDispatch();
 
   const [name, setName] = React.useState("");
   const [phone, setPhone] = React.useState("");
@@ -164,7 +166,10 @@ const CODModal = ({ isOpen, onClose }) => {
         >
           <button
             className="w-full bg-[#0b1d3a] text-white py-3 mt-2 hover:bg-black transition rounded-lg disabled:bg-gray-300"
-            onClick={onClose}
+            onClick={() => {
+              dispatch(clearCart());
+              onClose();
+            }}
             disabled={
               cartItems.length === 0 || !name || !phone || !address || !city
             }
