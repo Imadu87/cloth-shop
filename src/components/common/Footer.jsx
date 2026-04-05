@@ -75,7 +75,7 @@ const Footer = () => {
 
             {/* Social */}
             <div className="flex gap-3 mt-5">
-              <Link className="bg-white/5 hover:bg-white/10 p-3 rounded-lg transition">
+              <Link to={"/admin-dashboard"} className="bg-white/5 hover:bg-white/10 p-3 rounded-lg transition">
                 <FaFacebookF />
               </Link>
               <Link className="bg-white/5 hover:bg-white/10 p-3 rounded-lg transition">
