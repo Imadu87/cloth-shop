@@ -9,8 +9,8 @@ import {
 } from "../../store/slices/counterSlice";
 import { addToCart } from "../../store/slices/cartSlice";
 
-import { FaStar, FaWhatsapp } from "react-icons/fa";
-import Reviews from "./components/Reviews";
+import { FaWhatsapp } from "react-icons/fa";
+// import Reviews from "./components/Reviews";
 import Products from "../../components/products/Products";
 
 const ProductDetailPage = () => {
@@ -80,12 +80,12 @@ const ProductDetailPage = () => {
             </h1>
 
             {/* Rating */}
-            <div className="flex items-center gap-1 text-yellow-400">
+            {/* <div className="flex items-center gap-1 text-yellow-400">
               {[...Array(5)].map((_, i) => (
                 <FaStar key={i} />
               ))}
               <span className="text-gray-500 ml-2">(4 Reviews)</span>
-            </div>
+            </div> */}
 
             {/* Price & Discount */}
             <div className="flex items-center gap-4 text-2xl">
@@ -176,7 +176,7 @@ const ProductDetailPage = () => {
         </div>
 
         {/* Reviews */}
-        <Reviews />
+        {/* <Reviews /> */}
 
         {/* Related Products */}
         <Products heading={"SHOP MORE HIT ARTICLES"} isBestSeller={true} />

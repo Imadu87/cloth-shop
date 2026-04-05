@@ -1,10 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4">
+    <div className="min-h-screen bg-white flex items-center justify-center px-4 relative">
       
+      {/* Back Button */}
+      <button
+        onClick={() => navigate("/")}
+        className="absolute top-6 left-6 text-sm font-medium text-gray-600 hover:underline"
+      >
+        ← Back
+      </button>
+
       {/* Card */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -26,31 +37,26 @@ const Auth = () => {
           Sign in or create an account
         </p>
 
-        {/* Shop Button */}
         <button className="w-full bg-[#0b1d3a] text-white py-3 rounded-lg mt-6 hover:bg-black transition">
           Continue with Shop
         </button>
 
-        {/* Divider */}
         <div className="flex items-center gap-3 my-6">
           <hr className="flex-1" />
           <span className="text-sm text-gray-400">or</span>
           <hr className="flex-1" />
         </div>
 
-        {/* Email Input */}
         <input
           type="email"
           placeholder="Email"
           className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
         />
 
-        {/* Continue Button */}
         <button className="w-full bg-[#0b1d3a] text-white py-3 rounded-lg mt-4 hover:bg-black transition">
           Continue
         </button>
       </motion.div>
-
     </div>
   );
 };

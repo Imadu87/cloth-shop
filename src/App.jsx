@@ -1,10 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Layouts
 import MainLayout from "./layout/MainLayout";
 import AuthLayout from "./layout/AuthLayout";
 import OrderLayout from "./layout/OrderLayout";
+import AdminLayout from "./layout/AdminLayout";
 
+// User Pages
 import Home from "./page/home/Home";
 import ProductsPage from "./page/products/Products";
 import ContactUs from "./page/contactus/ContactUs";
@@ -13,6 +16,9 @@ import OrderSummary from "./page/order/OrderSummary";
 import Auth from "./page/auth/Auth";
 import Profile from "./page/order/components/Profile";
 import ProfileSettings from "./page/order/components/Setting";
+
+// Admin Pages
+import AdminDashboard from "./page/admin/pages/adminDashboard/AdminDashboard";
 
 const App = () => {
   return (
@@ -31,11 +37,16 @@ const App = () => {
           <Route path="/auth" element={<Auth />} />
         </Route>
 
-        {/* Order Layout (if needed for future expansion) */}
+        {/* Order Layout */}
         <Route element={<OrderLayout />}>
           <Route path="/order" element={<OrderSummary />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/settings" element={<ProfileSettings />} />
+        </Route>
+
+        {/* Admin Routes */}
+        <Route element={<AdminLayout />}>
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,26 +1,61 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../../store/slices/cartSlice";
+import { addOrder } from "../../store/slices/orderSlice";
 import {
   FaTimes,
   FaUser,
   FaPhone,
   FaMapMarkerAlt,
   FaCity,
+  FaEnvelope,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { validateCheckoutForm } from "../../utils/validation";
 
 const CODModal = ({ isOpen, onClose }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [name, setName] = React.useState("");
   const [phone, setPhone] = React.useState("");
+  const [email, setEmail] = React.useState("");
   const [address, setAddress] = React.useState("");
   const [city, setCity] = React.useState("");
+  const [errors, setErrors] = React.useState({});
 
   if (!isOpen) return null;
+
+  const handleOrder = () => {
+    const formData = { name, phone, address, city, email };
+    const validationErrors = validateCheckoutForm(formData);
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    const order = {
+      id: Date.now(),
+      items: cartItems,
+      customer: formData,
+      total: totalPrice,
+      status: "Pending",
+      date: new Date().toISOString(),
+      userId: null, // can be set if user auth is implemented
+    };
+
+    dispatch(addOrder(order)); // save order
+    dispatch(clearCart()); // clear cart
+
+    navigate("/order", {
+      state: order,
+    });
+
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -50,7 +85,6 @@ const CODModal = ({ isOpen, onClose }) => {
                   className="w-16 h-16 object-cover border rounded"
                 />
 
-                {/* Quantity Badge */}
                 <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
                   {item.quantity}
                 </span>
@@ -67,7 +101,7 @@ const CODModal = ({ isOpen, onClose }) => {
           ))}
         </div>
 
-        {/* Subtotal box */}
+        {/* Subtotal */}
         <div className="border p-3 mb-3 text-black rounded">
           <div className="flex justify-between text-sm">
             <span>Subtotal</span>
@@ -86,97 +120,110 @@ const CODModal = ({ isOpen, onClose }) => {
           <span>Rs {totalPrice}</span>
         </div>
 
-        {/* Shipping Method */}
-        <div className="mb-4 text-black">
-          <p className="font-medium mb-2">Shipping method</p>
-          <div className="flex justify-between items-center border p-2 rounded">
-            <label className="flex items-center gap-2">
-              <input type="radio" checked readOnly />
-              Free Shipping
-            </label>
-            <span>Free</span>
-          </div>
-        </div>
-
         {/* Address Form */}
         <div className="mb-3 text-black">
           <p className="font-medium mb-2">Complete Address with Details</p>
 
           <div className="space-y-2">
-            <div className="flex items-center border px-2 rounded">
+            {/* Name */}
+            <div
+              className={`flex items-center border px-2 rounded ${
+                errors.name ? "border-red-500" : ""
+              }`}
+            >
               <FaUser className="text-gray-400" />
               <input
                 placeholder="Complete Name"
-                required
                 className="w-full p-2 outline-none"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
+            {errors.name && (
+              <p className="text-red-500 text-xs">{errors.name}</p>
+            )}
 
-            <div className="flex items-center border px-2 rounded">
+            {/* Phone */}
+            <div
+              className={`flex items-center border px-2 rounded ${
+                errors.phone ? "border-red-500" : ""
+              }`}
+            >
               <FaPhone className="text-gray-400" />
               <input
                 placeholder="Active Mobile Number"
-                required
                 className="w-full p-2 outline-none"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
+            {errors.phone && (
+              <p className="text-red-500 text-xs">{errors.phone}</p>
+            )}
 
-            <div className="flex items-center border px-2 rounded">
+            {/* Email */}
+            <div
+              className={`flex items-center border px-2 rounded ${
+                errors.email ? "border-red-500" : ""
+              }`}
+            >
+              <FaEnvelope className="text-gray-400" />
+              <input
+                placeholder="Email Address"
+                className="w-full p-2 outline-none"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            {errors.email && (
+              <p className="text-red-500 text-xs">{errors.email}</p>
+            )}
+
+            {/* Address */}
+            <div
+              className={`flex items-center border px-2 rounded ${
+                errors.address ? "border-red-500" : ""
+              }`}
+            >
               <FaMapMarkerAlt className="text-gray-400" />
               <input
                 placeholder="Complete Address with details"
-                required
                 className="w-full p-2 outline-none"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
+            {errors.address && (
+              <p className="text-red-500 text-xs">{errors.address}</p>
+            )}
 
-            <div className="flex items-center border px-2 rounded">
+            {/* City */}
+            <div
+              className={`flex items-center border px-2 rounded ${
+                errors.city ? "border-red-500" : ""
+              }`}
+            >
               <FaCity className="text-gray-400" />
               <input
                 placeholder="City"
-                required
                 className="w-full p-2 outline-none"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
               />
             </div>
+            {errors.city && (
+              <p className="text-red-500 text-xs">{errors.city}</p>
+            )}
           </div>
         </div>
 
         {/* Button */}
-        <Link
-          to="/order"
-          state={{
-            items: cartItems,
-            customer: {
-              name,
-              phone,
-              address,
-              city,
-            },
-            total: totalPrice,
-            status: "Pending",
-          }}
+        <button
+          className="w-full bg-[#0b1d3a] text-white py-3 mt-2 hover:bg-black transition rounded-lg"
+          onClick={handleOrder}
         >
-          <button
-            className="w-full bg-[#0b1d3a] text-white py-3 mt-2 hover:bg-black transition rounded-lg disabled:bg-gray-300"
-            onClick={() => {
-              dispatch(clearCart());
-              onClose();
-            }}
-            disabled={
-              cartItems.length === 0 || !name || !phone || !address || !city
-            }
-          >
-            Complete Order • Rs {totalPrice}
-          </button>
-        </Link>
+          Complete Order • Rs {totalPrice}
+        </button>
       </div>
     </div>
   );

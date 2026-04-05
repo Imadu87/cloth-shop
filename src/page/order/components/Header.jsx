@@ -9,7 +9,9 @@ const DashboardHeader = () => {
     <header className="flex items-center justify-between px-4 md:px-10 py-4 border-b bg-white">
       <div className="flex items-center gap-5">
         {/* Left - Brand */}
-        <h1 className="text-2xl font-semibold">Rabbah Fabrics</h1>
+        <Link to="/">
+          <h1 className="text-2xl font-semibold">Rabbah Fabrics</h1>
+        </Link>
 
         {/* Orders */}
         <div className="hidden md:flex items-center gap-6">
@@ -48,9 +50,9 @@ const DashboardHeader = () => {
               </button>
             </Link>
             <Link to="/settings">
-            <button className="block w-full text-left px-4 py-2 hover:text-gray-500">
-              Settings
-            </button>
+              <button className="block w-full text-left px-4 py-2 hover:text-gray-500">
+                Settings
+              </button>
             </Link>
             <button className="block w-full text-left px-4 py-2 hover:text-gray-500">
               Logout
