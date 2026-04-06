@@ -5,7 +5,7 @@ import product4 from "../../assets/products/product4.jpg";
 
 export const allProducts = [
   {
-    id: 1,
+    id: "#001",
     name: "Black Cotton",
     category: "italian-boski-flat-50-off",
     price: 1000,
@@ -22,7 +22,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 2,
+    id: "#002",
     name: "White Cotton",
     category: "italian-boski-flat-50-off",
     price: 1500,
@@ -39,7 +39,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 3,
+    id: "#003",
     name: "Gray Cotton",
     category: "premium-paper-cotton-flat-50-off",
     price: 2200,
@@ -55,7 +55,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 4,
+    id: "#004",
     name: "Blue Cotton",
     category: "premium-paper-cotton-flat-50-off",
     price: 3200,
@@ -71,7 +71,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 5,
+    id: "#005",
     name: "Blue Cotton",
     category: "rafale-wool-falt-50-off",
     price: 3200,
@@ -87,7 +87,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 6,
+    id: "#006",
     name: "Blue Cotton",
     category: "rafale-wool-falt-50-off",
     price: 3200,
@@ -103,7 +103,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 7,
+    id: "#007",
     name: "Blue Cotton",
     category: "asal-double-ghora-boski-33-off",
     price: 3200,
@@ -119,7 +119,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 8,
+    id: "#008",
     name: "Blue Cotton",
     category: "asal-double-ghora-boski-33-off",
     price: 3200,
@@ -135,7 +135,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 9,
+    id: "#009",
     name: "Blue Cotton",
     category: "premium-royal-boski-50-off",
     price: 3200,
@@ -151,7 +151,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 10,
+    id: "#010",
     name: "Blue Cotton",
     category: "premium-royal-boski-50-off",
     price: 3200,
@@ -167,7 +167,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 11,
+    id: "#011",
     name: "Blue Cotton",
     category: "universal-wool-flat-43-off",
     price: 3200,
@@ -183,7 +183,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 12,
+    id: "#012",
     name: "Blue Cotton",
     category: "universal-wool-flat-43-off",
     price: 3200,
@@ -199,7 +199,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 13,
+    id: "#013",
     name: "Blue Cotton",
     category: "universal-wool-flat-43-off",
     price: 3200,
@@ -215,7 +215,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: 14,
+    id: "#014",
     name: "Blue Cotton",
     category: "cross-hill-flat-39",
     price: 3200,

@@ -19,6 +19,8 @@ import ProfileSettings from "./page/order/components/Setting";
 
 // Admin Pages
 import AdminDashboard from "./page/admin/pages/adminDashboard/AdminDashboard";
+import Orders from "./page/admin/pages/orders/Orders";
+import AdminProductsPage from "./page/admin/pages/products/Products";
 
 const App = () => {
   return (
@@ -47,6 +49,19 @@ const App = () => {
         {/* Admin Routes */}
         <Route element={<AdminLayout />}>
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route
+            path="/admin/pending-orders"
+            element={<Orders title="Pending Orders" status="Pending" />}
+          />
+          <Route
+            path="/admin/completed-orders"
+            element={<Orders title="Completed Orders" status="Completed" />}
+          />
+          <Route
+            path="/admin/cancelled-orders"
+            element={<Orders title="Cancelled Orders" status="Cancelled" />}
+          />
+          <Route path="/admin/products" element={<AdminProductsPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

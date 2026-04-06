@@ -18,18 +18,12 @@ const sidebarLinks = [
     name: "Orders",
     icon: <FaClipboardList />,
     children: [
-      { name: "Pending Orders", path: "/admin/orders/pending" },
-      { name: "Completed Orders", path: "/admin/orders/completed" },
+      { name: "Pending Orders", path: "/admin/pending-orders" },
+      { name: "Completed Orders", path: "/admin/completed-orders" },
+      { name: "Cancelled Orders", path: "/admin/cancelled-orders" },
     ],
   },
-  {
-    name: "Products",
-    icon: <FaBoxOpen />,
-    children: [
-      { name: "Add Products", path: "/admin/products/add" },
-      { name: "Products List", path: "/admin/products/list" },
-    ],
-  },
+  { name: "Products", icon: <FaBoxOpen />, path: "/admin/products" },
   { name: "Categories", icon: <FaTags />, path: "/admin/categories" },
   { name: "Customers", icon: <FaUsers />, path: "/admin/customers" },
   { name: "Settings", icon: <FaCog />, path: "/admin/settings" },
@@ -58,7 +52,7 @@ const AdminSidebar = () => {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-3/6 bg-[#0b1d3a] text-gray-300 transform ${
+        className={`fixed top-0 left-0 h-full w-3/5 bg-[#0b1d3a] text-gray-300 transform ${
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 z-50 md:hidden`}
       >
