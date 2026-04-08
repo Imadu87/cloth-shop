@@ -21,10 +21,10 @@ const ProductDetailPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-  dispatch(resetCount());
-}, [id]);
+    dispatch(resetCount());
+  }, [id]);
 
-  const product = products.find((p) => p.id === Number(id));
+  const product = products.find((p) => String(p.id) === String(id));
 
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(product?.image1);

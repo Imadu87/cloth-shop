@@ -19,8 +19,12 @@ import ProfileSettings from "./page/order/components/Setting";
 
 // Admin Pages
 import AdminDashboard from "./page/admin/pages/adminDashboard/AdminDashboard";
-import Orders from "./page/admin/pages/orders/Orders";
-import AdminProductsPage from "./page/admin/pages/products/Products";
+import AdminProductsPage from "./page/admin/pages/products/AdminProductsPage";
+import AdminOrdersPage from "./page/admin/pages/orders/AdminOrdersPage";
+import AdminCategoryPage from "./page/admin/pages/categories/AdminCategoryPage";
+import AdminCustomerPage from "./page/admin/pages/customer/AdminCustomerPage";
+import AdminSettingsPage from "./page/admin/pages/setting/AdminSettingPage";
+import AdminLogoutPage from "./page/admin/pages/logout/AdminLogoutPage";
 
 const App = () => {
   return (
@@ -49,19 +53,12 @@ const App = () => {
         {/* Admin Routes */}
         <Route element={<AdminLayout />}>
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route
-            path="/admin/pending-orders"
-            element={<Orders title="Pending Orders" status="Pending" />}
-          />
-          <Route
-            path="/admin/completed-orders"
-            element={<Orders title="Completed Orders" status="Completed" />}
-          />
-          <Route
-            path="/admin/cancelled-orders"
-            element={<Orders title="Cancelled Orders" status="Cancelled" />}
-          />
+          <Route path="/admin/orders" element={<AdminOrdersPage />} />
           <Route path="/admin/products" element={<AdminProductsPage />} />
+          <Route path="/admin/categories" element={<AdminCategoryPage />} />
+          <Route path="/admin/customers" element={<AdminCustomerPage />} />
+          <Route path="/admin/settings" element={<AdminSettingsPage />} />
+          <Route path="/admin/logout" element={<AdminLogoutPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

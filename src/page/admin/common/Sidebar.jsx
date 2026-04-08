@@ -17,11 +17,7 @@ const sidebarLinks = [
   {
     name: "Orders",
     icon: <FaClipboardList />,
-    children: [
-      { name: "Pending Orders", path: "/admin/pending-orders" },
-      { name: "Completed Orders", path: "/admin/completed-orders" },
-      { name: "Cancelled Orders", path: "/admin/cancelled-orders" },
-    ],
+    path: "/admin/orders",
   },
   { name: "Products", icon: <FaBoxOpen />, path: "/admin/products" },
   { name: "Categories", icon: <FaTags />, path: "/admin/categories" },
@@ -103,14 +99,16 @@ const AdminSidebar = () => {
                   <span>{link.name}</span>
                 </Link>
               </li>
-            )
+            ),
           )}
         </ul>
       </div>
 
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex md:flex-col md:w-64 md:h-screen bg-[#0b1d3a] text-gray-300 fixed top-0 left-0 p-4">
-        <div className="font-bold text-lg border-b border-gray-700 p-2">Admin Panel</div>
+        <div className="font-bold text-lg border-b border-gray-700 p-2">
+          Admin Panel
+        </div>
         <ul className="mt-4 flex flex-col gap-1">
           {sidebarLinks.map((link) =>
             link.children ? (
@@ -149,7 +147,7 @@ const AdminSidebar = () => {
                   <span>{link.name}</span>
                 </Link>
               </li>
-            )
+            ),
           )}
         </ul>
       </aside>

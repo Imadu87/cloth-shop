@@ -5,7 +5,7 @@ import product4 from "../../assets/products/product4.jpg";
 
 export const allProducts = [
   {
-    id: "#001",
+    id: "1",
     name: "Black Cotton",
     category: "italian-boski-flat-50-off",
     price: 1000,
@@ -22,7 +22,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#002",
+    id: "2",
     name: "White Cotton",
     category: "italian-boski-flat-50-off",
     price: 1500,
@@ -39,7 +39,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#003",
+    id: "3",
     name: "Gray Cotton",
     category: "premium-paper-cotton-flat-50-off",
     price: 2200,
@@ -55,7 +55,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#004",
+    id: "4",
     name: "Blue Cotton",
     category: "premium-paper-cotton-flat-50-off",
     price: 3200,
@@ -71,7 +71,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#005",
+    id: "5",
     name: "Blue Cotton",
     category: "rafale-wool-falt-50-off",
     price: 3200,
@@ -87,7 +87,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#006",
+    id: "6",
     name: "Blue Cotton",
     category: "rafale-wool-falt-50-off",
     price: 3200,
@@ -103,7 +103,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#007",
+    id: "7",
     name: "Blue Cotton",
     category: "asal-double-ghora-boski-33-off",
     price: 3200,
@@ -119,7 +119,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#008",
+    id: "8",
     name: "Blue Cotton",
     category: "asal-double-ghora-boski-33-off",
     price: 3200,
@@ -135,7 +135,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#009",
+    id: "9",
     name: "Blue Cotton",
     category: "premium-royal-boski-50-off",
     price: 3200,
@@ -151,7 +151,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#010",
+    id: "10",
     name: "Blue Cotton",
     category: "premium-royal-boski-50-off",
     price: 3200,
@@ -167,7 +167,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#011",
+    id: "11",
     name: "Blue Cotton",
     category: "universal-wool-flat-43-off",
     price: 3200,
@@ -183,7 +183,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#012",
+    id: "12",
     name: "Blue Cotton",
     category: "universal-wool-flat-43-off",
     price: 3200,
@@ -199,7 +199,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#013",
+    id: "13",
     name: "Blue Cotton",
     category: "universal-wool-flat-43-off",
     price: 3200,
@@ -215,7 +215,7 @@ export const allProducts = [
     width: "45 Inches",
   },
   {
-    id: "#014",
+    id: "14",
     name: "Blue Cotton",
     category: "cross-hill-flat-39",
     price: 3200,
@@ -230,4 +230,146 @@ export const allProducts = [
     length: "4 Yards",
     width: "45 Inches",
   },
+];
+
+export const orders = [
+  {
+    id: "ORD-001",
+    customer: {
+      name: "Ali Muhammad",
+      phone: "03001234567",
+      email: "ali@example.com",
+      address: "Gulshan-e-Iqbal, Karachi",
+      city: "Karachi",
+    },
+    products: [
+      {
+        id: "P001",
+        image: product1,
+        name: "Shirt",
+        price: 1000,
+        qty: 2,
+      },
+      {
+        id: "P002",
+        image: product2,
+        name: "Jeans",
+        price: 1500,
+        qty: 1,
+      },
+    ],
+
+    total: 2500,
+    status: "Completed",
+    date: "2026-04-05",
+  },
+  {
+    id: "ORD-002",
+    customer: {
+      name: "Sameer Qazi",
+      phone: "03001234567",
+      email: "sameer@example.com",
+      address: "Gulshan-e-Iqbal, Peshawar",
+      city: "Peshawar",
+    },
+    items: [
+      { name: "Shirt", qty: 2 },
+      { name: "Jeans", qty: 1 },
+    ],
+    products: [
+      {
+        id: "P001",
+        image: product1,
+        name: "Shirt",
+        price: 1000,
+        qty: 2,
+      },
+      {
+        id: "P002",
+        image: product2,
+        name: "Jeans",
+        price: 1500,
+        qty: 1,
+      },
+    ],
+
+    total: 2500,
+    status: "Cancelled",
+    date: "2026-04-05",
+  },
+  {
+    id: "ORD-003",
+    customer: {
+      name: "Samavia Qazi",
+      phone: "03001234567",
+      email: "samavia@example.com",
+      address: "Sheikh Muhammadi, Peshawar",
+      city: "Peshawar",
+    },
+    items: [
+      { name: "Shirt", qty: 2 },
+      { name: "Jeans", qty: 1 },
+    ],
+    products: [
+      {
+        id: "P001",
+        image: product1,
+        name: "Shirt",
+        price: 1000,
+        qty: 2,
+      },
+      {
+        id: "P002",
+        image: product2,
+        name: "Jeans",
+        price: 1500,
+        qty: 1,
+      },
+    ],
+
+    total: 2500,
+    status: "Pending",
+    date: "2026-04-05",
+  },
+];
+
+// Categories
+export const category = [
+  {
+    id: "CAT-001",
+    name: "Men Shirts",
+    slug: "men-shirts",
+    status: "Active",
+    productCount: 12,
+  },
+  {
+    id: "CAT-002",
+    name: "Men Jeans",
+    slug: "men-jeans",
+    status: "Active",
+    productCount: 15,
+  },
+  {
+    id: "CAT-003",
+    name: "Men Cap",
+    slug: "men-cap",
+    status: "Hidden",
+    productCount: 0,
+  },
+];
+
+
+// Customers 
+export const customers = [
+{
+  id: "CUS-001",
+  name: "Ali Muhammad",
+  phone: "03001234567",
+  email: "ali@example.com",
+  city: "Karachi",
+  address: "Gulshan-e-Iqbal",
+  avatar: "/avatar.jpg",
+  orders: 5,
+  status: "Active"
+}
 ];

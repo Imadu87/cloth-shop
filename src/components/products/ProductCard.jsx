@@ -58,17 +58,16 @@ const ProductCard = ({ product }) => {
       <Link to={`/product/${product.id}`}>
         <div
           className="relative w-full h-64 overflow-hidden rounded-xl"
-          style={{ perspective: "1200px" }} // perspective for 3D
+          style={{ perspective: "1200px" }}
         >
           <img
             src={product.image1}
             alt={product.name}
             className="w-full h-full object-cover transition-transform duration-500 transform-gpu
-                       group-hover:scale-110 group-hover:rotate-y-3 group-hover:rotate-x-2"
+                 group-hover:scale-110 group-hover:rotate-y-3 group-hover:rotate-x-2"
           />
         </div>
       </Link>
-
       {/* Content */}
       <div className="p-4 flex flex-col gap-2 text-center">
         <h4 className="text-gray-900 font-semibold text-lg">{product.name}</h4>
